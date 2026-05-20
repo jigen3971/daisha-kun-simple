@@ -17,8 +17,10 @@
   <h2>貸出代車</h2>
 
   <label>代車を選択</label>
+
   <select id="rentalCar" required>
     <option value="">代車を選択してください ※必須</option>
+
     <option>代車1　ワゴンR　郡山〇〇 あ12-34</option>
     <option>代車2　ムーヴ　郡山〇〇 い56-78</option>
     <option>代車3　アルト　郡山〇〇 う90-12</option>
@@ -34,17 +36,20 @@
     <option>代車13　軽トラック　郡山〇〇 す90-12</option>
     <option>代車14　軽バン　郡山〇〇 せ34-56</option>
     <option>代車15　その他　郡山〇〇 そ78-90</option>
-    </select>
+  </select>
 
 
   <h2>お客様情報</h2>
 
   <input type="text" placeholder="氏名 ※必須" required>
+
   <input type="tel" placeholder="TEL ※必須" required>
+
 
   <h2>貸出内容</h2>
 
   <label>貸出理由</label>
+
   <select>
     <option>車検</option>
     <option>修理</option>
@@ -59,36 +64,84 @@
   <input type="datetime-local">
 
 
-    <h2>確認事項</h2>
+  <h2>確認事項</h2>
+
   <p class="note">
-  <p class="note">
-  ※ 甲は当店、乙はお客様を表します。
-</p>
-</p>
+    ※ 甲は当店、乙はお客様を表します。
+  </p>
 
-<div class="check"><input type="checkbox"><label>【1】自動車保険の確認<br>当社の代車には任意保険が付保されていない場合があります。事故時は乙の保険で対応するものとし、無保険の場合は貸出できません。</label></div>
 
-<div class="check"><input type="checkbox"><label>【2】交通違反について<br>駐車違反等を含む交通違反は乙の責任で処理し、反則金の支払いおよび警察対応を行うものとします。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【1】自動車保険の確認<br>
+    当社の代車には任意保険が付保されていない場合があります。事故時は乙の保険で対応するものとし、無保険の場合は貸出できません。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【3】使用者の限定<br>代車の使用は本人のみとし、第三者への貸与（又貸し）は一切禁止します。違反時の責任は全て乙が負います。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【2】交通違反について<br>
+    駐車違反等を含む交通違反は乙の責任で処理し、反則金の支払いおよび警察対応を行うものとします。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【4】事故・損害の責任<br>事故・故障・損傷について甲は一切責任を負いません。修理費・レッカー費・休業損害等は乙の負担とします。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【3】使用者の限定<br>
+    代車の使用は本人のみとし、第三者への貸与（又貸し）は一切禁止します。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【5】鍵の紛失<br>鍵紛失時は鍵作成・交換費用として金100,000円を請求します。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【4】事故・損害の責任<br>
+    事故・故障・損傷について甲は一切責任を負いません。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【6】燃料<br>燃料は満タン返却とします。未給油の場合は燃料代および手数料を請求します。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【5】鍵の紛失<br>
+    鍵紛失時は鍵作成・交換費用として金100,000円を請求します。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【7】禁煙・電子タバコ禁止<br>全車禁煙とし、電子タバコを含め一切の喫煙を禁止します。違反または臭い残存時は室内消臭・ルームクリーニング費用として金25,000円を請求します。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【6】燃料<br>
+    燃料は満タン返却とします。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【8】ペット・臭気物禁止<br>ペット同乗および強い臭気物の持込みは禁止とし、違反時はクリーニング費用を請求します。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【7】禁煙・電子タバコ禁止<br>
+    全車禁煙とし、電子タバコを含め一切の喫煙を禁止します。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【9】日常点検義務<br>オイル・冷却水等の点検不足による故障は乙の負担とします。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【8】ペット・臭気物禁止<br>
+    ペット同乗および強い臭気物の持込みは禁止とします。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【10】用途制限<br>違法行為・過積載・改造等は禁止とし、違反時の損害は乙が負担します。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【9】日常点検義務<br>
+    オイル・冷却水等の点検不足による故障は乙の負担とします。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【11】返却義務<br>指定日時までに返却するものとし、遅延時は追加料金を請求します。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【10】用途制限<br>
+    違法行為・過積載・改造等は禁止とします。</label>
+  </div>
 
-<div class="check"><input type="checkbox"><label>【12】損傷・汚損<br>返却時の新たな傷・汚れは修理費および損料金を請求します。</label></div>
+  <div class="check">
+    <input type="checkbox">
+    <label>【11】返却義務<br>
+    指定日時までに返却するものとします。</label>
+  </div>
+
+  <div class="check">
+    <input type="checkbox">
+    <label>【12】損傷・汚損<br>
+    返却時の新たな傷・汚れは修理費を請求します。</label>
+  </div>
 
 
   <h2>貸出担当者</h2>
@@ -100,30 +153,50 @@
     <option>菅野</option>
   </select>
 
+
   <h2>署名</h2>
 
   <input type="text" placeholder="署名 ※必須" required>
 
+
   <button class="rent-btn">
     貸出確認完了
   </button>
+
+
   <hr>
 
-<h1 class="return-title">返却処理</h1>
 
-<label>返却する代車</label>
+  <h1 class="return-title">返却処理</h1>
 
-<select id="returnCar">
-  <option value="">返却する代車を選択</option>
-  <option>代車1 ワゴンR</option>
-  <option>代車2 ムーヴ</option>
-  <option>代車3 アルト</option>
-  <option>代車4 タント</option>
-</select>
+  <label>返却する代車</label>
 
-<button class="return-btn">
-  返却完了
-</button>
+  <select id="returnCar">
+
+    <option value="">返却する代車を選択</option>
+
+    <option>代車1　ワゴンR　郡山〇〇 あ12-34</option>
+    <option>代車2　ムーヴ　郡山〇〇 い56-78</option>
+    <option>代車3　アルト　郡山〇〇 う90-12</option>
+    <option>代車4　ミライース　郡山〇〇 え34-56</option>
+    <option>代車5　タント　郡山〇〇 お78-90</option>
+    <option>代車6　N-BOX　郡山〇〇 か11-22</option>
+    <option>代車7　スペーシア　郡山〇〇 き33-44</option>
+    <option>代車8　ハイゼット　郡山〇〇 く55-66</option>
+    <option>代車9　エブリイ　郡山〇〇 け77-88</option>
+    <option>代車10　アクア　郡山〇〇 こ99-00</option>
+    <option>代車11　フィット　郡山〇〇 さ12-34</option>
+    <option>代車12　ノート　郡山〇〇 し56-78</option>
+    <option>代車13　軽トラック　郡山〇〇 す90-12</option>
+    <option>代車14　軽バン　郡山〇〇 せ34-56</option>
+    <option>代車15　その他　郡山〇〇 そ78-90</option>
+
+  </select>
+
+
+  <button class="return-btn">
+    返却完了
+  </button>
 
 </div>
 

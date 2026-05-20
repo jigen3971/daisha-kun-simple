@@ -1,5 +1,6 @@
 const GAS_URL = "https://script.google.com/macros/s/AKfycbx1_EpLviIW221CXfOiEJnlllkPWC407sJbDemxxiBosiFbmFR4agret5_krrJ_4MRu/exec";
 
+// 貸出登録
 document.querySelector(".rent-btn").addEventListener("click", async () => {
 
   const requiredItems = document.querySelectorAll("[required]");
@@ -31,8 +32,9 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
   }
 
   const data = {
-    car: document.querySelector("select").value,
-    name: document.querySelector('input[type="text"]').value,
+    mode: "rent",
+    car: document.getElementById("rentalCar").value,
+    name: document.querySelectorAll('input[type="text"]')[0].value,
     tel: tel,
     reason: document.querySelectorAll("select")[1].value,
     start: document.querySelectorAll('input[type="datetime-local"]')[0].value,
@@ -42,21 +44,22 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
   };
 
   try {
-
     await fetch(GAS_URL, {
       method: "POST",
       body: JSON.stringify(data)
     });
 
     alert("貸出確認を登録しました");
+    location.reload();
 
   } catch (error) {
-
     alert("送信エラー");
-
   }
 
 });
+
+
+// 返却処理
 document.querySelector(".return-btn").addEventListener("click", async () => {
 
   const returnCar = document.getElementById("returnCar").value;
@@ -72,33 +75,36 @@ document.querySelector(".return-btn").addEventListener("click", async () => {
   };
 
   try {
-
     await fetch(GAS_URL, {
       method: "POST",
       body: JSON.stringify(data)
     });
 
     alert("返却済みにしました");
+    location.reload();
 
   } catch (error) {
-
     alert("返却処理でエラーが出ました");
-
   }
 
 });
+
+
+// 貸出中の代車を選べなくする
 async function loadRentalCars() {
 
   const res = await fetch(GAS_URL);
   const rentalCars = await res.json();
 
-  const rentalSelect = document.querySelector("select");
+  const rentalSelect = document.getElementById("rentalCar");
 
   Array.from(rentalSelect.options).forEach(option => {
 
-    if (rentalCars.includes(option.value)) {
+    const carName = option.textContent.trim();
+
+    if (rentalCars.includes(carName)) {
       option.disabled = true;
-      option.textContent = option.value + "【貸出中】";
+      option.textContent = carName + "【貸出中】";
     }
 
   });
