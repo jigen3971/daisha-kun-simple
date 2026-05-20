@@ -115,3 +115,16 @@ label{
 .return-btn:hover{
   background:#222;
 }
+select option:disabled{
+  background:#ffe1e1;
+  color:#d00000;
+  font-weight:bold;
+}
+
+input[type="datetime-local"]{
+  width:100%;
+  max-width:100%;
+  min-height:52px;
+  font-size:16px;
+  box-sizing:border-box;
+}

@@ -104,7 +104,7 @@ async function loadRentalCars() {
 
     if (rentalCars.includes(carName)) {
       option.disabled = true;
-      option.textContent = carName + "【貸出中】";
+      option.textContent = "🚫 貸出中：" + carName;
     }
 
   });
