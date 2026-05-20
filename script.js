@@ -87,3 +87,21 @@ document.querySelector(".return-btn").addEventListener("click", async () => {
   }
 
 });
+async function loadRentalCars() {
+
+  const res = await fetch(GAS_URL);
+  const rentalCars = await res.json();
+
+  const rentalSelect = document.querySelector("select");
+
+  Array.from(rentalSelect.options).forEach(option => {
+
+    if (rentalCars.includes(option.value)) {
+      option.disabled = true;
+      option.textContent = option.value + "【貸出中】";
+    }
+
+  });
+}
+
+loadRentalCars();
