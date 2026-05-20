@@ -1,7 +1,12 @@
 const GAS_URL = "https://script.google.com/macros/s/AKfycbx1_EpLviIW221CXfOiEJnlllkPWC407sJbDemxxiBosiFbmFR4agret5_krrJ_4MRu/exec";
 
+
 // 貸出登録
 document.querySelector(".rent-btn").addEventListener("click", async () => {
+
+  const rentBtn = document.querySelector(".rent-btn");
+
+  if (rentBtn.disabled) return;
 
   const requiredItems = document.querySelectorAll("[required]");
 
@@ -31,6 +36,9 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
     }
   }
 
+  rentBtn.disabled = true;
+  rentBtn.textContent = "登録中...";
+
   const data = {
     mode: "rent",
     car: document.getElementById("rentalCar").value,
@@ -44,6 +52,7 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
   };
 
   try {
+
     await fetch(GAS_URL, {
       method: "POST",
       body: JSON.stringify(data)
@@ -53,7 +62,12 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
     location.reload();
 
   } catch (error) {
+
     alert("送信エラー");
+
+    rentBtn.disabled = false;
+    rentBtn.textContent = "貸出確認完了";
+
   }
 
 });
@@ -62,6 +76,10 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
 // 返却処理
 document.querySelector(".return-btn").addEventListener("click", async () => {
 
+  const returnBtn = document.querySelector(".return-btn");
+
+  if (returnBtn.disabled) return;
+
   const returnCar = document.getElementById("returnCar").value;
 
   if (!returnCar) {
@@ -69,12 +87,16 @@ document.querySelector(".return-btn").addEventListener("click", async () => {
     return;
   }
 
+  returnBtn.disabled = true;
+  returnBtn.textContent = "返却中...";
+
   const data = {
     mode: "return",
     car: returnCar
   };
 
   try {
+
     await fetch(GAS_URL, {
       method: "POST",
       body: JSON.stringify(data)
@@ -84,7 +106,12 @@ document.querySelector(".return-btn").addEventListener("click", async () => {
     location.reload();
 
   } catch (error) {
+
     alert("返却処理でエラーが出ました");
+
+    returnBtn.disabled = false;
+    returnBtn.textContent = "返却完了";
+
   }
 
 });
