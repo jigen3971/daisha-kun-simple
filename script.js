@@ -57,3 +57,33 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
   }
 
 });
+document.querySelector(".return-btn").addEventListener("click", async () => {
+
+  const returnCar = document.getElementById("returnCar").value;
+
+  if (!returnCar) {
+    alert("返却する代車を選択してください");
+    return;
+  }
+
+  const data = {
+    mode: "return",
+    car: returnCar
+  };
+
+  try {
+
+    await fetch(GAS_URL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+
+    alert("返却済みにしました");
+
+  } catch (error) {
+
+    alert("返却処理でエラーが出ました");
+
+  }
+
+});

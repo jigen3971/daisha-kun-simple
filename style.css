@@ -93,3 +93,25 @@ label{
   }
 
 }
+.return-title{
+  text-align:center;
+  margin-top:35px;
+  color:#333;
+}
+
+.return-btn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:10px;
+  background:#444;
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.return-btn:hover{
+  background:#222;
+}
