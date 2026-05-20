@@ -1,12 +1,18 @@
 const GAS_URL = "https://script.google.com/macros/s/AKfycbx1_EpLviIW221CXfOiEJnlllkPWC407sJbDemxxiBosiFbmFR4agret5_krrJ_4MRu/exec";
 
 
+// =========================
 // 貸出登録
+// =========================
+
+let isRenting = false;
+
 document.querySelector(".rent-btn").addEventListener("click", async () => {
 
-  const rentBtn = document.querySelector(".rent-btn");
+  if (isRenting) return;
+  isRenting = true;
 
-  if (rentBtn.disabled) return;
+  const rentBtn = document.querySelector(".rent-btn");
 
   const requiredItems = document.querySelectorAll("[required]");
 
@@ -14,6 +20,7 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
     if (!item.value.trim()) {
       alert("必須項目をすべて入力してください");
       item.focus();
+      isRenting = false;
       return;
     }
   }
@@ -24,6 +31,7 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
   if (!/^\d{11}$/.test(tel)) {
     alert("電話番号はハイフンなし11桁で入力してください");
     telInput.focus();
+    isRenting = false;
     return;
   }
 
@@ -32,6 +40,7 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
   for (let check of checks) {
     if (!check.checked) {
       alert("確認事項すべてにチェックしてください");
+      isRenting = false;
       return;
     }
   }
@@ -65,25 +74,32 @@ document.querySelector(".rent-btn").addEventListener("click", async () => {
 
     alert("送信エラー");
 
+    isRenting = false;
     rentBtn.disabled = false;
     rentBtn.textContent = "貸出確認完了";
-
   }
 
 });
 
 
+// =========================
 // 返却処理
+// =========================
+
+let isReturning = false;
+
 document.querySelector(".return-btn").addEventListener("click", async () => {
 
-  const returnBtn = document.querySelector(".return-btn");
+  if (isReturning) return;
+  isReturning = true;
 
-  if (returnBtn.disabled) return;
+  const returnBtn = document.querySelector(".return-btn");
 
   const returnCar = document.getElementById("returnCar").value;
 
   if (!returnCar) {
     alert("返却する代車を選択してください");
+    isReturning = false;
     return;
   }
 
@@ -109,15 +125,18 @@ document.querySelector(".return-btn").addEventListener("click", async () => {
 
     alert("返却処理でエラーが出ました");
 
+    isReturning = false;
     returnBtn.disabled = false;
     returnBtn.textContent = "返却完了";
-
   }
 
 });
 
 
+// =========================
 // 貸出中の代車を選べなくする
+// =========================
+
 async function loadRentalCars() {
 
   const res = await fetch(GAS_URL);
@@ -130,8 +149,10 @@ async function loadRentalCars() {
     const carName = option.textContent.trim();
 
     if (rentalCars.includes(carName)) {
+
       option.disabled = true;
       option.textContent = "🚫 貸出中：" + carName;
+
     }
 
   });
